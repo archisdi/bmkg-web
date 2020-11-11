@@ -1,24 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Layout, Menu } from 'antd';
 import './App.css';
 
+import HomePage from './pages/Home';
+
+const { Header, Footer, Content } = Layout;
+
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Layout className="layout">
+    <Header>
+      <div className="logo" />
+      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
+        <Menu.Item key="1">Home</Menu.Item>
+        <Menu.Item key="2">Earthquake</Menu.Item>
+        <Menu.Item key="3">Weather</Menu.Item>
+      </Menu>
+    </Header>
+    <Content style={{ padding: '50px' }}>
+      <HomePage />
+    </Content>
+    <Footer style={{ textAlign: 'center' }}>developed by archisdi</Footer>
+  </Layout>
     </div>
   );
 }
